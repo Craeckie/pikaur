@@ -148,6 +148,9 @@ def isolate_root_cmd(cmd: List[str], cwd=None) -> List[str]:
         '-p', 'DynamicUser=yes',
         '-p', 'CacheDirectory=pikaur',
         '-E', 'HOME=/tmp',
+        '-E', 'GNUPGHOME=/etc/gnupg/certs',
+        '--gid=nobody',
+        '-p', 'ReadWritePaths=/etc/gnupg/certs',
     ]
     if cwd is not None:
         base_root_isolator += ['-p', 'WorkingDirectory=' + cwd]
